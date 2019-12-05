@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="model"
+            type="com.ganesh.smartwatermeter.model.ContactUsModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#BCE0FD"
+        android:orientation="vertical">
+
+
+        <RelativeLayout
+            android:id="@+id/view_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:background="#fff"
+            android:elevation="1dp"
+            android:gravity="bottom"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/img_profile"
+                imgFileName="@{model.imageUrl}"
+                android:layout_width="@dimen/profile_width"
+                android:layout_height="@dimen/profile_height"
+                android:paddingTop="@dimen/nav_header_vertical_spacing"
+                android:src="@drawable/ic_avatar" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toEndOf="@id/img_profile"
+                android:orientation="vertical"
+                android:padding="@dimen/activity_horizontal_margin">
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/txtName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/semi_bold"
+                    android:gravity="center"
+                    android:text="@{model.apartmentName}"
+                    android:textColor="@color/text_primary"
+                    android:textSize="14sp"
+
+                    />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/regular"
+                    android:text="@{model.address}"
+                    android:textColor="@color/text_primary"
+                    android:textSize="14sp" />
+
+
+            </LinearLayout>
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:background="#fff"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="@{model.mobileNo.length()>0 ? View.VISIBLE: View.GONE}">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/imgMobile"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginBottom="16dp"
+                    android:padding="5dp"
+                    app:srcCompat="@drawable/ic_call" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toStartOf="@id/txtMobile"
+                    android:layout_toEndOf="@id/imgMobile"
+                    android:autoLink="phone"
+                    android:fontFamily="@font/regular"
+                    android:text="@{model.mobileNo}"
+                    android:textColor="@color/text_primary"
+                    android:textColorLink="@color/text_primary"
+                    android:textSize="14sp" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/txtMobile"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:fontFamily="@font/regular"
+                    android:text="Mobile"
+
+                    android:textColor="@color/text_primary"
+                    android:textSize="10sp" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_below="@id/imgMobile"
+                    android:layout_toEndOf="@id/imgMobile"
+                    android:background="@color/divider"
+
+
+                    />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="@{model.emailId.length()>0 ? View.VISIBLE: View.GONE}">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/imgMail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginBottom="16dp"
+                    android:padding="5dp"
+                    app:srcCompat="@drawable/ic_mail" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toStartOf="@id/txtMail"
+                    android:layout_toEndOf="@id/imgMail"
+                    android:autoLink="email"
+                    android:fontFamily="@font/regular"
+                    android:text="@{model.emailId}"
+                    android:textColor="@color/text_primary"
+                    android:textColorLink="@color/text_primary"
+                    android:textSize="14sp" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/txtMail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:fontFamily="@font/regular"
+                    android:text="Email"
+                    android:textColor="@color/text_primary"
+                    android:textSize="10sp" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_below="@id/imgMail"
+                    android:layout_toEndOf="@id/imgMail"
+                    android:background="@color/divider"
+
+
+                    />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:visibility="@{model.website.length()>0 ? View.VISIBLE: View.GONE}">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/imgWeb"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginBottom="16dp"
+                    android:padding="5dp"
+                    app:srcCompat="@drawable/ic_web" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toStartOf="@id/txtWeb"
+                    android:layout_toEndOf="@id/imgWeb"
+                    android:autoLink="web"
+                    android:fontFamily="@font/regular"
+                    android:text="@{model.website}"
+                    android:textColor="@color/text_primary"
+                    android:textColorLink="@color/text_primary"
+                    android:textSize="14sp" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/txtWeb"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:fontFamily="@font/regular"
+                    android:text="Website"
+                    android:textColor="@color/text_primary"
+                    android:textSize="10sp" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_below="@id/imgWeb"
+                    android:layout_toEndOf="@id/imgWeb"
+                    android:background="@color/divider"
+
+
+                    />
+
+            </RelativeLayout>
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+</layout>

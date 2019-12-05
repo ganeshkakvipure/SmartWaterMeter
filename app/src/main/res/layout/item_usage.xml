@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="model"
+            type="com.ganesh.smartwatermeter.model.UsagesModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="4dp"
+        android:background="#F1F9FF"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:fontFamily="@font/semi_bold"
+            android:maxLines="1"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp"
+            android:singleLine="true"
+            android:text="@{model.date}"
+            android:textColor="@color/text_primary"
+            android:textSize="14sp" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:ellipsize="end"
+            android:fontFamily="@font/semi_bold"
+            android:maxLines="1"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp"
+            android:singleLine="true"
+            android:text="@{String.format(@string/reading,model.value)}"
+            android:textColor="@color/text_primary"
+            android:textSize="14sp" />
+
+    </RelativeLayout>
+</layout>

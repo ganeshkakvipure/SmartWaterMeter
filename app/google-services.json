@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "172231940858",
+    "firebase_url": "https://smartwater-dcc83.firebaseio.com",
+    "project_id": "smartwater-dcc83",
+    "storage_bucket": "smartwater-dcc83.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:172231940858:android:ad9195777146e64b118743",
+        "android_client_info": {
+          "package_name": "in.smartwatermeters.smartwatermeter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "172231940858-kml1nkbmhsvhouqhuk0c9442a8eui2v1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyByHTUnsoEfPRvgbMdxejsL0UQPY-HeVRM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "172231940858-kml1nkbmhsvhouqhuk0c9442a8eui2v1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

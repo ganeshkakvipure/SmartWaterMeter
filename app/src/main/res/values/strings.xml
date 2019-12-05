@@ -1,0 +1,86 @@
+<resources>
+    <string name="app_name">Smart Meters</string>
+    <!-- Common -->
+    <string name="version_name">App Version %s</string>
+    <string name="no_internet_connection">No Internet connection</string>
+    <string name="poor_internet_connection">Poor Internet connection</string>
+    <string name="no_internet_connection_msg">Sorry, No Internet connection detected. Please reconnect and try again.</string>
+    <string name="failed_con_server">Failed to connect to server.</string>
+    <string name="server_error">Something went wrong please try again later</string>
+    <string name="read_storage">This app needs access to your phone storage for downloading invoice.</string>
+
+    <string name="default_notification_channel_id">1</string>
+
+    <!--Error Msg -->
+    <string name="error_title">Error</string>
+    <string name="error_invalid_user">Invalid username and password</string>
+    <string name="error_empty_username">Please enter username</string>
+    <string name="error_empty_password">Please enter password</string>
+    <string name="error_invalid_user_role">Invalid User role</string>
+
+
+    <!-- Custom Dialog  -->
+    <string name="btn_negative_custom_dialog">No</string>
+    <string name="btn_positive_custom_dialog">Yes</string>
+    <string name="btn_ok_custom_dialog">OK</string>
+
+    <!--Loading dialog message -->
+    <string name="msg_loading_dialog_login">Login...</string>
+    <string name="msg_loading_dialog_fetch_group">Fetch Group list...</string>
+
+    <!-- Base Activity -->
+    <string name="title_logout">Logout</string>
+    <string name="msg_logout">Do you want to logout?</string>
+
+    <!-- Activity title -->
+    <string name="title_activity_dashboard">DASHBOARD</string>
+    <string name="title_activity_login">Login</string>
+    <string name="title_activity_usage_history">USAGE HISTORY</string>
+    <string name="title_activity_bill_details">BILL DETAILS</string>
+    <string name="title_activity_switch_meter">SWITCH METER</string>
+    <string name="title_activity_feedback">FEEDBACK</string>
+    <string name="title_activity_contact_us">CONTACT US</string>
+
+    <!-- Login -->
+    <string name="hint_username">Username</string>
+    <string name="hint_password">Password</string>
+    <string name="btn_text_sign_in">Login</string>
+    <string name="login_screen_title">Smart Water Meters</string>
+
+
+    <!-- Send Feedback-->
+    <string name="select_feedback_type">Select Type</string>
+    <string name="feedback_send_success_title">Success</string>
+    <string name="feedback_send_success_msg">Review Send Successfully</string>
+
+    <!--Home-->
+    <string name="openDrawer">open_drawer</string>
+    <string name="closeDrawer">close_drawer</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+
+    <!-- Dashboard -->
+    <string name="meter_id">METER ID: %s</string>
+    <string name="customer_name">Name:</string>
+    <string name="customer_apartment">Apartment:</string>
+    <string name="customer_block">Block:</string>
+    <string name="customer_floor">Floor:</string>
+    <string name="customer_flat">Flat:</string>
+    <string name="last_sync">Last Synced : %s</string>
+
+    <!--Bill Details -->
+    <string name="invoice_no">Invoice %s</string>
+    <string name="total_unit">Units: %s Ltrs</string>
+    <string name="total_usage">Total usage: %s Ltrs</string>
+    <string name="total_amount">Amount: \u20B9 %s</string>
+    <string name="reading">%s Ltrs</string>
+
+    <string name="status_paid">Payment: Paid</string>
+    <string name="status_unpaid">Payment: Unpaid</string>
+
+    <string name="status_unpayable">Payment: Unpayable</string>
+    <string name="zero">0</string>
+
+
+</resources>

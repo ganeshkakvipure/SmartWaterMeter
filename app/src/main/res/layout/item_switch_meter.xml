@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="model"
+            type="String" />
+
+        <variable
+            name="viewModel"
+            type="com.ganesh.smartwatermeter.view.switc_meter.SwitchMeterViewModel" />
+    </data>
+
+    <RelativeLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="4dp"
+        android:background="#F1F9FF"
+        android:orientation="vertical"
+        android:onClick="@{()-> viewModel.onMeterSelect(model)}"
+        android:padding="16dp">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:fontFamily="@font/semi_bold"
+            android:maxLines="1"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp"
+            android:singleLine="true"
+            android:text="@{model}"
+            android:textColor="@color/text_primary"
+            android:textSize="14sp" />
+
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:textColor="@color/text_primary"
+            android:visibility="@{viewModel.currentMeterId.equalsIgnoreCase(model) ? View.VISIBLE : View.GONE}"
+            app:srcCompat="@drawable/ic_check" />
+
+    </RelativeLayout>
+</layout>

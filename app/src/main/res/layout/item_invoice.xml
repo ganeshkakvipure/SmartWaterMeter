@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="model"
+            type="com.ganesh.smartwatermeter.model.InvoiceDetailModel" />
+
+        <variable
+            name="viewModel"
+            type="com.ganesh.smartwatermeter.view.invoice.InvoiceViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="@{()-> viewModel.onInvoiceClick(model)}"
+        android:orientation="vertical"
+        android:padding="8dp">
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txtInvoiceNo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:fontFamily="@font/semi_bold"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:text="@{String.format(@string/invoice_no,model.invoiceNo)}"
+            android:textColor="@color/text_primary"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toStartOf="@id/txtInvoiceDate"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Invoce No :11333" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txtInvoiceDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:fontFamily="@font/regular"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:text="@{model.invoiceDate}"
+            android:textColor="@color/text_primary"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="July 17" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txtAmount"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:ellipsize="end"
+            android:fontFamily="@font/regular"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:text="@{String.format(@string/total_amount,model.amount)}"
+            android:textColor="@color/text_primary"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toStartOf="@+id/txtUnits"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txtInvoiceNo"
+            tools:text="Amount:2999" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txtUnits"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:ellipsize="end"
+            android:fontFamily="@font/regular"
+            android:gravity="end"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:text="@{String.format(@string/total_unit,model.readingUnit)}"
+            android:textColor="@color/text_primary"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintStart_toEndOf="@+id/txtAmount"
+            app:layout_constraintTop_toBottomOf="@id/txtInvoiceNo"
+            tools:text="Units:50000ltrs" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txtPaymentStatus"
+            paymentStatus="@{model.paymentStatus}"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:ellipsize="end"
+            android:fontFamily="@font/regular"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:textColor="@color/text_primary"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toStartOf="@id/imdDownload"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txtAmount"
+            tools:text="Payment:Paid" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imdDownload"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            app:layout_constraintBottom_toTopOf="@id/txtPaymentStatus"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtPaymentStatus"
+            app:srcCompat="@drawable/ic_file_download"
+
+            />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            app:layout_constraintTop_toBottomOf="@id/imdDownload"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:background="@color/divider"
+            android:layout_marginTop="4dp"
+            />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

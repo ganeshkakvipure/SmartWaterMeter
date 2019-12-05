@@ -1,0 +1,330 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="model"
+            type="com.ganesh.smartwatermeter.model.CustomerModel" />
+    </data>
+
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipeContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/bg_window"
+            android:orientation="vertical">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/txtMeterId"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:fontFamily="@font/semi_bold"
+                android:maxLines="1"
+                android:paddingTop="8dp"
+
+                android:singleLine="true"
+                android:text="@{String.format(@string/meter_id,model.meterId)}"
+                android:textColor="@color/text_primary"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Meter Id:2-1-13827" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/imgRotation"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_centerInParent="true"
+                android:layout_margin="8dp"
+                app:layout_constraintBottom_toTopOf="@id/txtMonthlyUsage"
+
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/txtMeterId"
+                app:srcCompat="@drawable/rotate"
+
+
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingStart="64dp"
+                android:paddingTop="4dp"
+                android:paddingEnd="64dp"
+                android:paddingBottom="4dp"
+                app:layout_constraintBottom_toTopOf="@id/txtMonthlyUsage"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/txtMeterId"
+
+                >
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/semi_bold"
+                    android:gravity="center"
+                    android:text="@{model.monthlyUsage ?? @string/zero}"
+                    android:textColor="@color/text_primary"
+                    android:textSize="36dp"
+                    tools:text="666666" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/semi_bold"
+                    android:gravity="center"
+                    android:text="ltr"
+
+                    android:textColor="@color/text_primary"
+                    android:textSize="36dp" />
+            </LinearLayout>
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/txtMonthlyUsage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="4dp"
+                android:ellipsize="end"
+                android:fontFamily="@font/semi_bold"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:text="@{String.format(@string/total_usage,model.meterReading)}"
+                android:textColor="@color/text_primary"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toTopOf="@id/txtLastSync"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:text="Total Usage:60000Ltrs" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/txtLastSync"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_marginBottom="8dp"
+                android:ellipsize="end"
+                android:fontFamily="@font/semi_bold"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:text="@{String.format(@string/last_sync,model.lastSyncTime)}"
+                android:textColor="@color/text_primary"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toTopOf="@id/llDetails"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:text="Last Sync: 2 hours" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/llDetails"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/bg_btn"
+                android:orientation="vertical"
+                android:padding="16dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+
+                >
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/txtLblName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:fontFamily="@font/semi_bold"
+                    android:maxLines="1"
+                    android:paddingTop="4dp"
+                    android:paddingBottom="4dp"
+                    android:singleLine="true"
+                    android:text="@string/customer_name"
+                    android:textColor="@color/bg_btn_text"
+                    android:textSize="14sp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    tools:text="Name:" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:fontFamily="@font/semi_bold"
+                    android:maxLines="1"
+                    android:paddingTop="4dp"
+                    android:paddingBottom="4dp"
+                    android:singleLine="true"
+                    android:text="@{model.customerName}"
+                    android:textColor="@color/bg_btn_text"
+                    android:textSize="14sp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/txtlblApartment"
+                    tools:text="Ganesh" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/txtlblApartment"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:fontFamily="@font/semi_bold"
+                    android:maxLines="1"
+                    android:paddingTop="4dp"
+                    android:paddingBottom="4dp"
+                    android:paddingEnd="5dp"
+                    android:singleLine="true"
+                    android:text="@string/customer_apartment"
+                    android:textColor="@color/bg_btn_text"
+                    android:textSize="14sp"
+                    tools:text="Apartments:"
+
+                    app:layout_constraintTop_toBottomOf="@id/txtLblName"
+                    app:layout_constraintStart_toStartOf="parent"
+
+                    />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:fontFamily="@font/semi_bold"
+                    android:maxLines="1"
+                    android:paddingTop="4dp"
+                    android:paddingBottom="4dp"
+                    android:singleLine="true"
+                    android:text="@{model.customerApartment}"
+                    android:textColor="@color/bg_btn_text"
+                    android:textSize="14sp"
+                    tools:text="Palava City"
+                    app:layout_constraintTop_toBottomOf="@id/txtLblName"
+                    app:layout_constraintStart_toEndOf="@id/txtlblApartment"
+
+
+                    />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/txtLblBlock"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:fontFamily="@font/semi_bold"
+                    android:maxLines="1"
+                    android:paddingTop="4dp"
+                    android:paddingBottom="4dp"
+                    android:singleLine="true"
+                    android:text="@string/customer_block"
+                    android:textColor="@color/bg_btn_text"
+                    android:textSize="14sp"
+                    tools:text="Block"
+                    app:layout_constraintTop_toBottomOf="@id/txtlblApartment"
+                   app:layout_constraintStart_toStartOf="parent"
+                    />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:fontFamily="@font/semi_bold"
+                    android:maxLines="1"
+                    android:paddingTop="4dp"
+                    android:paddingBottom="4dp"
+                    android:singleLine="true"
+                    android:text="@{model.customerBlock}"
+                    android:textColor="@color/bg_btn_text"
+                    android:textSize="14sp"
+                    tools:text="B"
+                    app:layout_constraintTop_toBottomOf="@id/txtlblApartment"
+                    app:layout_constraintStart_toEndOf="@id/txtlblApartment"
+                    />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/txtLblFloor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:fontFamily="@font/semi_bold"
+                    android:maxLines="1"
+                    android:paddingTop="4dp"
+                    android:paddingBottom="4dp"
+                    android:singleLine="true"
+                    android:text="@string/customer_floor"
+                    android:textColor="@color/bg_btn_text"
+                    android:textSize="14sp"
+                    tools:text="Floor:"
+                    app:layout_constraintTop_toBottomOf="@id/txtLblBlock"
+                    app:layout_constraintStart_toStartOf="parent"
+                    />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:fontFamily="@font/semi_bold"
+                    android:maxLines="1"
+                    android:paddingTop="4dp"
+                    android:paddingBottom="4dp"
+                    android:singleLine="true"
+                    android:text="@{model.customerFloor}"
+                    android:textColor="@color/bg_btn_text"
+                    android:textSize="14sp"
+                    tools:text="Floor:"
+                    app:layout_constraintTop_toBottomOf="@id/txtLblBlock"
+                    app:layout_constraintStart_toEndOf="@id/txtlblApartment"
+                    />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:fontFamily="@font/semi_bold"
+                    android:maxLines="1"
+                    android:paddingTop="4dp"
+                    android:paddingBottom="4dp"
+                    android:singleLine="true"
+                    android:text="@string/customer_flat"
+                    android:textColor="@color/bg_btn_text"
+                    android:textSize="14sp"
+                    tools:text="@string/customer_flat"
+                    app:layout_constraintTop_toBottomOf="@id/txtLblFloor"
+                  app:layout_constraintStart_toStartOf="parent"
+                    />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:fontFamily="@font/semi_bold"
+                    android:maxLines="1"
+                    android:paddingTop="4dp"
+                    android:paddingBottom="4dp"
+                    android:singleLine="true"
+                    android:text="@{model.customerFlat}"
+                    android:textColor="@color/bg_btn_text"
+                    android:textSize="14sp"
+                    tools:text="123"
+                    app:layout_constraintTop_toBottomOf="@id/txtLblFloor"
+                    app:layout_constraintStart_toEndOf="@id/txtlblApartment"
+                    />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+</layout>

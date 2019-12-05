@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="model"
+            type="com.ganesh.smartwatermeter.model.request.LoginRequestModel" />
+
+        <variable
+            name="viewModel"
+            type="com.ganesh.smartwatermeter.view.login.LoginViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:weightSum="3">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="@color/bg_btn">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:orientation="vertical">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:src="@drawable/logo_asma" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/semi_bold"
+                    android:gravity="center"
+                    android:text="@string/login_screen_title"
+                    android:textColor="@color/bg_btn_text"
+                    android:textSize="24dp" />
+            </LinearLayout>
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2"
+            android:background="#ffffff"
+            android:orientation="vertical"
+            android:paddingLeft="32dp"
+            android:paddingRight="32dp">
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/edtUsername"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="56dp"
+                android:background="@drawable/bg_edt"
+                android:fontFamily="@font/regular"
+                android:gravity="center_horizontal"
+                android:hint="@string/hint_username"
+                android:inputType="textNoSuggestions"
+                android:maxLines="1"
+                android:padding="16dp"
+                android:singleLine="true"
+                android:text="@={model.userName}"
+                android:textColor="@color/text_primary"
+                android:textColorHint="@color/text_primary"
+                android:textSize="16sp" />
+
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/edtPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16sp"
+                android:background="@drawable/bg_edt"
+                android:fontFamily="@font/regular"
+                android:gravity="center_horizontal"
+                android:hint="@string/hint_password"
+                android:inputType="textPassword|textNoSuggestions"
+                android:maxLines="1"
+                android:padding="16dp"
+                android:singleLine="true"
+                android:text="@={model.password}"
+                android:textColor="@color/text_primary"
+                android:textColorHint="@color/text_primary"
+                android:textSize="16sp" />
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/txtLogin"
+                style="@style/ButtonStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="8dp"
+                android:fontFamily="@font/regular"
+                android:onClick="@{()-> viewModel.onLoginClick(model)}"
+                android:padding="16dp"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:text="@string/btn_text_sign_in"
+                android:textSize="16sp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+</layout>

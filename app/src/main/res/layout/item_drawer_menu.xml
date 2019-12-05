@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="model"
+            type="com.ganesh.smartwatermeter.model.DrawerMenuModel" />
+
+        <variable
+            name="viewHolder"
+            type="com.ganesh.smartwatermeter.view.home.HomeViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?android:attr/selectableItemBackground"
+        android:onClick="@{()-> viewHolder.onMenuSelect(model)}"
+        android:orientation="horizontal"
+        android:paddingStart="8dp"
+        android:paddingTop="8dp"
+        android:paddingEnd="8dp">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            menuIcon="@{model.menuIcon}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:padding="8dp" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txtMenu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:fontFamily="@font/regular"
+            android:padding="8dp"
+            android:text="@{model.menuName}"
+            android:textColor="@color/bg_btn_text"
+            android:textSize="16sp" />
+    </LinearLayout>
+</layout>

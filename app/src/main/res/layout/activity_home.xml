@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.ganesh.smartwatermeter.view.home.HomeViewModel" />
+    </data>
+
+    <androidx.drawerlayout.widget.DrawerLayout
+        android:id="@+id/drawer_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true"
+        tools:openDrawer="start">
+
+        <include
+            android:id="@+id/container_home"
+            layout="@layout/container_home"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <com.google.android.material.navigation.NavigationView
+            android:id="@+id/nav_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            android:background="@color/navigation_drawer"
+            android:fitsSystemWindows="false">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/imgLogOut"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginLeft="64dp"
+                    android:layout_marginBottom="16dp"
+                    android:onClick="@{()-> viewModel.onSignOut()}"
+                    android:src="@drawable/ic_logout" />
+
+                <androidx.core.widget.NestedScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_above="@id/imgLogOut">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <include
+                            android:id="@+id/nav_header"
+                            layout="@layout/nav_header_main" />
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/nav_drawer_recycler_view"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:nestedScrollingEnabled="false"
+                            tools:targetApi="lollipop" />
+
+                    </LinearLayout>
+                </androidx.core.widget.NestedScrollView>
+            </RelativeLayout>
+        </com.google.android.material.navigation.NavigationView>
+
+
+    </androidx.drawerlayout.widget.DrawerLayout>
+</layout>
