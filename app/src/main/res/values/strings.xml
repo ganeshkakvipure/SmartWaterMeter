@@ -68,6 +68,7 @@
     <string name="customer_floor">Floor:</string>
     <string name="customer_flat">Flat:</string>
     <string name="last_sync">Last Synced : %s</string>
+    <string name="current_month">Month: %s</string>
 
     <!--Bill Details -->
     <string name="invoice_no">Invoice %s</string>

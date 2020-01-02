@@ -11,19 +11,19 @@ import io.reactivex.functions.Consumer;
 
 public class DashboardViewModel extends BaseViewModel<BaseNavigator> {
 
-    public MutableLiveData<CustomerModel> customerModelMutableLiveData=new MutableLiveData<>();
+    public MutableLiveData<CustomerModel> customerModelMutableLiveData = new MutableLiveData<>();
 
     public MutableLiveData<CustomerModel> getCustomerModelMutableLiveData() {
         return customerModelMutableLiveData;
     }
 
-    public void init (){
-        CustomerModel customerModel= SPManager.getInstance().getCustomerData();
+    public void init() {
+        CustomerModel customerModel = SPManager.getInstance().getCustomerData();
         customerModel.setMeterId(SPManager.getInstance().getMeterId());
         customerModelMutableLiveData.setValue(customerModel);
     }
 
-    public void getReading(){
+    public void getReading() {
 
         compositeDisposable.add(DataRepository.getInstance().getMeterReading(new Consumer<CustomerModel>() {
             @Override
@@ -33,6 +33,7 @@ public class DashboardViewModel extends BaseViewModel<BaseNavigator> {
                 customerModel1.setMeterReading(customerModel.getMeterReading());
                 customerModel1.setLastSyncTime(customerModel.getLastSyncTime());
                 customerModel1.setMonthlyUsage(customerModel.getMonthlyUsage());
+                customerModel1.setCurrentMonth(customerModel.getCurrentMonth());
                 SPManager.getInstance().setCustomerName(customerModel1);
                 customerModelMutableLiveData.setValue(customerModel1);
             }

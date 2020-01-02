@@ -18,6 +18,10 @@ public class CustomerModel extends BaseObservable {
     @Expose
     private String lastSyncTime;
 
+    @SerializedName("month")
+    @Expose
+    private String currentMonth;
+
     @SerializedName("name")
     @Expose
     private String customerName;
@@ -151,5 +155,15 @@ public class CustomerModel extends BaseObservable {
     public void setMonthlyUsage(String monthlyUsage) {
         this.monthlyUsage = monthlyUsage;
         notifyPropertyChanged(com.ganesh.smartwatermeter.BR.monthlyUsage);
+    }
+
+    @Bindable
+    public String getCurrentMonth() {
+        return currentMonth;
+    }
+
+    public void setCurrentMonth(String currentMonth) {
+        this.currentMonth = currentMonth;
+        notifyPropertyChanged(com.ganesh.smartwatermeter.BR.currentMonth);
     }
 }

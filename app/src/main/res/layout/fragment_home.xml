@@ -75,6 +75,24 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
+                    android:layout_marginBottom="4dp"
+                    android:ellipsize="end"
+                    android:fontFamily="@font/semi_bold"
+                    android:gravity="center"
+                    android:maxLines="1"
+                    android:singleLine="true"
+                    android:text="@{String.format(@string/current_month,model.currentMonth)}"
+                    android:textColor="@color/text_primary"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toTopOf="@id/txtLastSync"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    tools:text="Month:Jan" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
                     android:fontFamily="@font/semi_bold"
                     android:gravity="center"
                     android:text="@{model.monthlyUsage ?? @string/zero}"
@@ -157,8 +175,8 @@
                     android:text="@string/customer_name"
                     android:textColor="@color/bg_btn_text"
                     android:textSize="14sp"
-                    app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
                     tools:text="Name:" />
 
                 <androidx.appcompat.widget.AppCompatTextView
@@ -174,8 +192,8 @@
                     android:text="@{model.customerName}"
                     android:textColor="@color/bg_btn_text"
                     android:textSize="14sp"
-                    app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintStart_toEndOf="@id/txtlblApartment"
+                    app:layout_constraintTop_toTopOf="parent"
                     tools:text="Ganesh" />
 
                 <androidx.appcompat.widget.AppCompatTextView
@@ -186,16 +204,16 @@
                     android:fontFamily="@font/semi_bold"
                     android:maxLines="1"
                     android:paddingTop="4dp"
-                    android:paddingBottom="4dp"
                     android:paddingEnd="5dp"
+                    android:paddingBottom="4dp"
                     android:singleLine="true"
                     android:text="@string/customer_apartment"
                     android:textColor="@color/bg_btn_text"
                     android:textSize="14sp"
-                    tools:text="Apartments:"
+                    app:layout_constraintStart_toStartOf="parent"
 
                     app:layout_constraintTop_toBottomOf="@id/txtLblName"
-                    app:layout_constraintStart_toStartOf="parent"
+                    tools:text="Apartments:"
 
                     />
 
@@ -211,9 +229,9 @@
                     android:text="@{model.customerApartment}"
                     android:textColor="@color/bg_btn_text"
                     android:textSize="14sp"
-                    tools:text="Palava City"
-                    app:layout_constraintTop_toBottomOf="@id/txtLblName"
                     app:layout_constraintStart_toEndOf="@id/txtlblApartment"
+                    app:layout_constraintTop_toBottomOf="@id/txtLblName"
+                    tools:text="Palava City"
 
 
                     />
@@ -231,10 +249,9 @@
                     android:text="@string/customer_block"
                     android:textColor="@color/bg_btn_text"
                     android:textSize="14sp"
-                    tools:text="Block"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/txtlblApartment"
-                   app:layout_constraintStart_toStartOf="parent"
-                    />
+                    tools:text="Block" />
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="wrap_content"
@@ -248,10 +265,9 @@
                     android:text="@{model.customerBlock}"
                     android:textColor="@color/bg_btn_text"
                     android:textSize="14sp"
-                    tools:text="B"
-                    app:layout_constraintTop_toBottomOf="@id/txtlblApartment"
                     app:layout_constraintStart_toEndOf="@id/txtlblApartment"
-                    />
+                    app:layout_constraintTop_toBottomOf="@id/txtlblApartment"
+                    tools:text="B" />
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/txtLblFloor"
@@ -266,10 +282,9 @@
                     android:text="@string/customer_floor"
                     android:textColor="@color/bg_btn_text"
                     android:textSize="14sp"
-                    tools:text="Floor:"
-                    app:layout_constraintTop_toBottomOf="@id/txtLblBlock"
                     app:layout_constraintStart_toStartOf="parent"
-                    />
+                    app:layout_constraintTop_toBottomOf="@id/txtLblBlock"
+                    tools:text="Floor:" />
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="wrap_content"
@@ -283,10 +298,9 @@
                     android:text="@{model.customerFloor}"
                     android:textColor="@color/bg_btn_text"
                     android:textSize="14sp"
-                    tools:text="Floor:"
-                    app:layout_constraintTop_toBottomOf="@id/txtLblBlock"
                     app:layout_constraintStart_toEndOf="@id/txtlblApartment"
-                    />
+                    app:layout_constraintTop_toBottomOf="@id/txtLblBlock"
+                    tools:text="Floor:" />
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="wrap_content"
@@ -300,10 +314,9 @@
                     android:text="@string/customer_flat"
                     android:textColor="@color/bg_btn_text"
                     android:textSize="14sp"
-                    tools:text="@string/customer_flat"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/txtLblFloor"
-                  app:layout_constraintStart_toStartOf="parent"
-                    />
+                    tools:text="@string/customer_flat" />
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="wrap_content"
@@ -317,10 +330,9 @@
                     android:text="@{model.customerFlat}"
                     android:textColor="@color/bg_btn_text"
                     android:textSize="14sp"
-                    tools:text="123"
-                    app:layout_constraintTop_toBottomOf="@id/txtLblFloor"
                     app:layout_constraintStart_toEndOf="@id/txtlblApartment"
-                    />
+                    app:layout_constraintTop_toBottomOf="@id/txtLblFloor"
+                    tools:text="123" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
