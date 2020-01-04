@@ -4,6 +4,7 @@ import android.graphics.Bitmap;
 import android.text.TextUtils;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.request.target.BitmapImageViewTarget;
 import com.ganesh.smartwatermeter.BuildConfig;
 import com.ganesh.smartwatermeter.R;
@@ -26,6 +27,7 @@ public class BindingAdapters {
 
         Glide.with(imageView.getContext()).load(BuildConfig.BASE_URL + BuildConfig.IMAGE_PATH + imgProfile + ".jpg")
                 .asBitmap()
+                .diskCacheStrategy(DiskCacheStrategy.NONE)
                 .skipMemoryCache(true)
                 .placeholder(R.drawable.ic_avatar)
                 .centerCrop().into(new BitmapImageViewTarget(imageView) {

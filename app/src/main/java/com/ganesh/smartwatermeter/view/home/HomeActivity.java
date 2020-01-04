@@ -82,12 +82,15 @@ public class HomeActivity extends BaseActivity<ActivityHomeBinding, HomeViewMode
 
     private void setDrawerHeader() {
 
-        String userName = SPManager.getInstance().getUserName();
-
-        BindingAdapters.setProfilePic(mBinding.navHeader.imgProfile, userName);
+       setProfilePic();
         CustomerModel customerModel = SPManager.getInstance().getCustomerData();
         mBinding.navHeader.txtName.setText(customerModel.getCustomerName());
         mBinding.navHeader.txtMeterId.setText(SPManager.getInstance().getMeterId());
+    }
+
+    public void setProfilePic() {
+        String userName = SPManager.getInstance().getUserName();
+        BindingAdapters.setProfilePic(mBinding.navHeader.imgProfile, userName);
     }
 
     private void setUpNavigatorDrawer() {

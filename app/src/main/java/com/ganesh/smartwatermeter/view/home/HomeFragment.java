@@ -42,6 +42,9 @@ public class HomeFragment extends BaseFragment<FragmentHomeBinding, DashboardVie
         mViewModel.getCustomerModelMutableLiveData().observe(this, new Observer<CustomerModel>() {
             @Override
             public void onChanged(CustomerModel customerModel) {
+                if(getActivity()!=null) {
+                    ((HomeActivity) getActivity()).setProfilePic();
+                }
                 mBinding.swipeContainer.setRefreshing(false);
                 mBinding.setModel(customerModel);
             }

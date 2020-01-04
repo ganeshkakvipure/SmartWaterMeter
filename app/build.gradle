@@ -2,6 +2,14 @@ apply plugin: 'com.android.application'
 apply plugin: 'io.fabric'
 
 android {
+    signingConfigs {
+        release {
+            storeFile file('/Users/webwerks/Ganesh/ganesh/DotComSolution/WaterMeter/SmartWaterMeterAndroid/app/keystore/swt_keystore')
+            storePassword 'swt_dotcom'
+            keyPassword 'swt_dotcom'
+            keyAlias = 'SWT'
+        }
+    }
     compileSdkVersion 29
     defaultConfig {
         applicationId "in.smartwatermeters.smartwatermeter"
@@ -21,6 +29,7 @@ android {
             buildConfigField "String", "BASE_URL", '"https://www.smartwatermeters.in"'
             buildConfigField "String", "PATH_URL", '"/api/"'
             buildConfigField "String", "IMAGE_PATH", '"/assets/images/avatar/"'
+            signingConfig signingConfigs.release
         }
 
         debug {
